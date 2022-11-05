@@ -128,7 +128,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="3х3.cpp" />
     <ClCompile Include="breadth-first search.cpp" />
+    <ClCompile Include="checker.h" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>

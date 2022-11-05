@@ -1,5 +1,7 @@
-﻿  Main.cpp
-C:\Users\Егор\source\repos\Study practice\Study practice\Main.cpp(17,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-C:\Users\Егор\source\repos\Study practice\Study practice\Main.cpp(91,24): warning C4101: e: неиспользованная локальная переменная
-C:\Users\Егор\source\repos\Study practice\Study practice\Main.cpp(95,15): warning C4101: excep: неиспользованная локальная переменная
+﻿  Проверка источников на наличие зависимостей модуля…
+  Main.cpp
+C:\Users\Егор\source\repos\Study practice\Study practice\Main.cpp(105,14): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\Егор\source\repos\Study practice\Study practice\Main.cpp(121,14): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\Егор\source\repos\Study practice\Study practice\Main.cpp(104,24): warning C4101: e: неиспользованная локальная переменная
+C:\Users\Егор\source\repos\Study practice\Study practice\Main.cpp(109,15): warning C4101: excep: неиспользованная локальная переменная
   Study practice.vcxproj -> C:\Users\Егор\source\repos\Study practice\x64\Debug\Study practice.exe

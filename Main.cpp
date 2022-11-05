@@ -2,7 +2,8 @@
 #include<fstream>
 #include<iostream>
 #include "breadth-first search.h"
-
+#include<random>
+#include<cstdlib>
 
 using namespace std;
 
@@ -12,12 +13,20 @@ using namespace std;
 
 
 
-void cutter(vector<vector<bool>> &cieve)
-{
+void cutter(vector<vector<bool>> &cieve, int N)
+{/*
 	srand(time(NULL));
 	// произвольная вершина
-	int v = rand() % 10000 + 0;
+	int v = rand() % N*N + 0;
 	int direction = rand() % 4 + 1;
+	*/
+	random_device rd;
+	mt19937 gen(rd());
+	uniform_int_distribution<> dist(0, N * N - 1);
+	int v = dist(gen);
+
+	uniform_int_distribution<> dist2(1, 4);
+	int direction = dist2(gen);
 
 	vector<bool> possible_directions{ 1,1,1,1 };
 
@@ -27,7 +36,7 @@ void cutter(vector<vector<bool>> &cieve)
 
 		try {
 			if (direction == 1) {
-				if (v - 1 < 0 ||  v % 100 == 0)
+				if (v == 0 ||  v % N == 0)
 				{
 					possible_directions[0] = 0;
 					throw out_of_range{ "Vector::operator[]" };
@@ -40,24 +49,26 @@ void cutter(vector<vector<bool>> &cieve)
 				}
 				cieve[v - 1][v] = false;
 				cieve[v][v - 1] = false;
+				//cout << v << ' ' << v - 1 << endl;
 			}
 			else if (direction == 2 ) {
-				if (v > 9899 )
+				if (v > N * N - N - 1)
 				{
 					possible_directions[1] = 0;
 					throw out_of_range{ "Vector::operator[]" };
 				}
 				// перерезаем вниз если есть что
-				if (cieve[v + 100][v] == false|| v % 100 == 0 || (v + 1) % 100 == 0)
+				if (cieve[v + N][v] == false || v % N == 0 || (v + 1) % N == 0 || v == 0)
 				{
 					possible_directions[1] = 0;
 					throw false;
 				}
-				cieve[v + 100][v] = false;
-				cieve[v][v + 100] = false;
+				cieve[v + N][v] = false;
+				cieve[v][v + N] = false;
+				//cout << v << ' ' << v + N << endl;
 			}
 			else if (direction == 3) {
-				if ((v + 1) % 100 == 0)
+				if ((v + 1) % N == 0)
 				{
 					possible_directions[2] = 0;
 					throw out_of_range{ "Vector::operator[]" };
@@ -70,25 +81,28 @@ void cutter(vector<vector<bool>> &cieve)
 				}
 				cieve[v + 1][v] = false;
 				cieve[v][v + 1] = false;
+				//cout << v << ' ' << v + 1 << endl;
 			}
 			else{
-				if (v < 100) 
+				if (v < N) 
 				{
 					possible_directions[3] = 0;
 					throw out_of_range{ "Vector::operator[]" };
 				}
 				// перерезаем вверх если есть что
-				if (cieve[v - 100][v] == false || v % 100 == 0 || (v + 1) % 100 == 0)
+				if (cieve[v - N][v] == false || v % N == 0 || (v + 1) % N == 0)
 				{
 					possible_directions[3] = 0;
 					throw false;
 				}
-				cieve[v - 100][v] = false;
-				cieve[v][v - 100] = false;
+				cieve[v - N][v] = false;
+				cieve[v][v - N] = false;
+				//cout << v << ' ' << v - N << endl;
 			}
 			break;
 			}
 		catch (out_of_range &e) {
+			srand(time(NULL));
 			direction = rand() % 4 + 1;
 			continue;
 		}
@@ -96,9 +110,15 @@ void cutter(vector<vector<bool>> &cieve)
 		{
 			if (!possible_directions[0] && !possible_directions[1] && !possible_directions[2] && !possible_directions[3])
 			{
-				v = rand() % 10000 + 0;
+				//srand(time(NULL));
+				//v = rand() % N * N + 0;
+				random_device rd;
+				mt19937 gen(rd());
+				uniform_int_distribution<> dist(0, N * N - 1);
+				v = dist(gen);
 				possible_directions = { 1,1,1,1 };
 			}
+			srand(time(NULL));
 			direction = rand() % 4 + 1;
 			continue;
 		}
@@ -142,79 +162,87 @@ bool horizontal_path_check(vector<vector<bool>>& cieve)
 }
 
 
+void checker()
+{
+	ifstream in;
+	in.open("C:\\Users\\Егор\\source\\repos\\Study practice\\Study practice\\output.txt");
+	double num;
+	vector<double> buff;
+	while (in >> num)
+		buff.push_back(num);
+	double sum = 0;
+	for (double n : buff)
+		sum += n;
+	cout << "\nAverage result is " << sum / buff.size() << endl;
+	in.close();
+}
+
 
 
 
 int main() {
 	// матрица 100х100 из нулей
-	/*
+	
 	// единицы на i,j; i,j+1; i+1,j месте
 	// можно для простоты привести матрицу к нижнетреугольной
-	vector<vector<bool>> cieve =
-	{
-		{1,1,0,1,0,0,0,0,0},
-		{1,1,1,0,1,0,0,0,0},
-		{0,1,1,0,0,1,0,0,0},
-		{1,0,0,1,1,0,1,0,0}, 
-		{0,1,0,1,1,1,0,1,0}, 
-		{0,0,1,0,1,1,0,0,1}, 
-		{0,0,0,1,0,0,1,1,0}, 
-		{0,0,0,0,1,0,1,1,1}, 
-		{0,0,0,0,0,1,0,1,1}, };
-
-		*/
-	
+	int N = 10;
 	ofstream of;
 	of.open("C:\\Users\\Егор\\source\\repos\\Study practice\\Study practice\\output.txt");
-	for (int i = 0; i < 3; ++i) {
+	for (int i = 0; i < 2; ++i) {
 
-		vector cieve(10000, vector<bool>(10000, false));
-		for (size_t i = 0; i < cieve.size() - 100; ++i)
+		vector cieve(N*N, vector<bool>(N*N, false));
+		for (size_t i = 0; i < cieve.size() - 1; ++i)
 		{
-			if ((i + 1) % 100 != 0)
+			if ((i + 1) % N != 0)
+			{
+				if (i < cieve.size() - N - 1)
+				{
+					cieve[i][i] = true;
+					cieve[i][i + 1] = true;
+					cieve[i + 1][i] = true;
+					cieve[i + N][i] = true;
+					cieve[i][i + N] = true;
+				}
+				else
+				{
+					cieve[i][i] = true;
+					cieve[i][i + 1] = true;
+					cieve[i + 1][i] = true;
+				}
+			}
+			else if(i != N * N - 1)
 			{
 				cieve[i][i] = true;
-				cieve[i][i + 1] = true;
-				cieve[i + 1][i] = true;
-				cieve[i + 100][i] = true;
-				cieve[i][i + 100] = true;
+				cieve[i + N][i] = true;
+				cieve[i][i + N] = true;
 			}
-			else
-			{
-				cieve[i][i] = true;
-				cieve[i + 100][i] = true;
-				cieve[i][i + 100] = true;
-			}
+			
 		}
 		vector<int> track;
-		for (int i = 0; i < 100; ++i)
+		for (int i = 0; i < N; ++i)
 			track.push_back(i);
 
 		int count_cut = 0;
 		while (true)
 		{
 			int start = 0;
-			int finish = 99;
-			if (/*!horizontal_path_check(cieve) && */!correct_path(cieve, track))
+			int finish = N - 1;
+			if (!correct_path(cieve, track))
 				track = Breadth_first_search(cieve, start, finish);
 			if (track.empty())
 				break;
 
-			cutter(cieve);
+			cutter(cieve, N);
 
 			count_cut++;
 
 		}
-		/*for (auto x : cieve)
-		{
-			for (auto y : x)
-				cout << y;
-			cout << "\n";
-		}*/
-	cout << "\n" << count_cut/19800.;
-	cout << "\n\n";
-	of << count_cut/19800. << '\n';
+	
+		//cout << "\n" << count_cut / (double)(2 * N * (N - 1));
+	//cout << "\n\n";
+	of << count_cut/ (double)(2 * N * (N - 1)) << '\n';
 	}
 	of.close();
-
+	checker();
+	return 1;
 }
