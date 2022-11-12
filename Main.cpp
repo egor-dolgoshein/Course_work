@@ -185,10 +185,10 @@ int main() {
 	
 	// единицы на i,j; i,j+1; i+1,j месте
 	// можно для простоты привести матрицу к нижнетреугольной
-	int N = 10;
+	int N = 100;
 	ofstream of;
 	of.open("C:\\Users\\Егор\\source\\repos\\Study practice\\Study practice\\output.txt");
-	for (int i = 0; i < 2; ++i) {
+	for (int i = 0; i < 3; ++i) {
 
 		vector cieve(N*N, vector<bool>(N*N, false));
 		for (size_t i = 0; i < cieve.size() - 1; ++i)
@@ -240,7 +240,7 @@ int main() {
 	
 		//cout << "\n" << count_cut / (double)(2 * N * (N - 1));
 	//cout << "\n\n";
-	of << count_cut/ (double)(2 * N * (N - 1)) << '\n';
+	of << count_cut/ (double)(2 * N * (N + 1)) << '\n';
 	}
 	of.close();
 	checker();
