@@ -54,7 +54,7 @@ int main() {
 	int N = 20;
 	ofstream of;
 	of.open("D:\\EGOR\\study\\source\\repos\\Study practice\\Study practice\\output.txt");
-	for (int i = 0; i < 3; ++i) {
+	for (int i = 0; i < 1; ++i) {
 		
 		auto filled_case = fill_grid(N);
 

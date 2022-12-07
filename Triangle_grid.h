@@ -157,21 +157,21 @@ void cutter(std::vector<std::vector<int>>& grid, int N)
 		}
 		catch (std::out_of_range& e) {
 			srand(time(NULL));
-			direction = rand() % 4 + 1;
+			direction = rand() % 6 + 1;
 			continue;
 		}
 		catch (bool excep)
 		{
-			if (!possible_directions[0] && !possible_directions[1] && !possible_directions[2] && !possible_directions[3])
+			if (!possible_directions[0] && !possible_directions[1] && !possible_directions[2] && !possible_directions[3] && !possible_directions[4] && !possible_directions[5])
 			{
 				std::random_device rd;
 				std::mt19937 gen(rd());
 				std::uniform_int_distribution<> dist(0, N * N - 1);
 				v = dist(gen);
-				possible_directions = { 1,1,1,1 };
+				possible_directions = { 1,1,1,1,1,1 };
 			}
 			srand(time(NULL));
-			direction = rand() % 4 + 1;
+			direction = rand() % 6 + 1;
 			continue;
 		}
 	}
