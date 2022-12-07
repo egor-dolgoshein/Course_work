@@ -1,6 +1,56 @@
 ﻿  Main.cpp
-C:\Users\Егор\source\repos\Study practice\Study practice\Main.cpp(105,14): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-C:\Users\Егор\source\repos\Study practice\Study practice\Main.cpp(121,14): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-C:\Users\Егор\source\repos\Study practice\Study practice\Main.cpp(104,24): warning C4101: e: неиспользованная локальная переменная
-C:\Users\Егор\source\repos\Study practice\Study practice\Main.cpp(109,15): warning C4101: excep: неиспользованная локальная переменная
-  Study practice.vcxproj -> C:\Users\Егор\source\repos\Study practice\x64\Debug\Study practice.exe
+D:\EGOR\study\source\repos\Study practice\Study practice\Triangle_grid.h(15,28): warning C4267: аргумент: преобразование из "size_t" в "_Ty"; возможна потеря данных
+          with
+          [
+              _Ty=int
+          ]
+D:\EGOR\study\source\repos\Study practice\Study practice\Triangle_grid.h(16,28): warning C4267: аргумент: преобразование из "size_t" в "_Ty"; возможна потеря данных
+          with
+          [
+              _Ty=int
+          ]
+D:\EGOR\study\source\repos\Study practice\Study practice\Triangle_grid.h(17,28): warning C4267: аргумент: преобразование из "size_t" в "_Ty"; возможна потеря данных
+          with
+          [
+              _Ty=int
+          ]
+D:\EGOR\study\source\repos\Study practice\Study practice\Triangle_grid.h(18,28): warning C4267: аргумент: преобразование из "size_t" в "_Ty"; возможна потеря данных
+          with
+          [
+              _Ty=int
+          ]
+D:\EGOR\study\source\repos\Study practice\Study practice\Triangle_grid.h(19,32): warning C4267: аргумент: преобразование из "size_t" в "_Ty"; возможна потеря данных
+          with
+          [
+              _Ty=int
+          ]
+D:\EGOR\study\source\repos\Study practice\Study practice\Triangle_grid.h(20,32): warning C4267: аргумент: преобразование из "size_t" в "_Ty"; возможна потеря данных
+          with
+          [
+              _Ty=int
+          ]
+D:\EGOR\study\source\repos\Study practice\Study practice\Triangle_grid.h(24,28): warning C4267: аргумент: преобразование из "size_t" в "_Ty"; возможна потеря данных
+          with
+          [
+              _Ty=int
+          ]
+D:\EGOR\study\source\repos\Study practice\Study practice\Triangle_grid.h(25,28): warning C4267: аргумент: преобразование из "size_t" в "_Ty"; возможна потеря данных
+          with
+          [
+              _Ty=int
+          ]
+D:\EGOR\study\source\repos\Study practice\Study practice\Triangle_grid.h(30,27): warning C4267: аргумент: преобразование из "size_t" в "_Ty"; возможна потеря данных
+          with
+          [
+              _Ty=int
+          ]
+D:\EGOR\study\source\repos\Study practice\Study practice\Triangle_grid.h(31,27): warning C4267: аргумент: преобразование из "size_t" в "_Ty"; возможна потеря данных
+          with
+          [
+              _Ty=int
+          ]
+D:\EGOR\study\source\repos\Study practice\Study practice\Triangle_grid.h(159,14): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+D:\EGOR\study\source\repos\Study practice\Study practice\Triangle_grid.h(173,14): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+D:\EGOR\study\source\repos\Study practice\Study practice\Triangle_grid.h(158,29): warning C4101: e: неиспользованная локальная переменная
+D:\EGOR\study\source\repos\Study practice\Study practice\Triangle_grid.h(163,15): warning C4101: excep: неиспользованная локальная переменная
+  Study practice.vcxproj -> D:\EGOR\study\source\repos\Study practice\x64\Debug\Study practice.exe
