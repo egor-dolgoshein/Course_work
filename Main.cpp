@@ -18,7 +18,6 @@ bool correct_path(vector<vector<int>>& grid, vector<int>& track)
 {
 	for (int i = 0; i < track.size() - 1; ++i)
 	{
-		//!cieve[track[i]][track[i + 1]]
 		if (find(grid[track[i]].begin(), grid[track[i]].end(), track[i+1]) == grid[track[i]].end())
 			return false;
 	}
@@ -47,11 +46,7 @@ void checker()
 
 
 int main() {
-	// матрица 100х100 из нулей
-	
-	// единицы на i,j; i,j+1; i+1,j месте
-	// можно для простоты привести матрицу к нижнетреугольной
-	int N = 20;
+	int N = 80;
 	ofstream of;
 	of.open("D:\\EGOR\\study\\source\\repos\\Study practice\\Study practice\\output.txt");
 	for (int i = 0; i < 1; ++i) {
@@ -80,11 +75,8 @@ int main() {
 			count_cut++;
 
 		}
-	
-		//cout << "\n" << count_cut / (double)(2 * N * (N - 1));
-	//cout << "\n\n";
-	//of << count_cut / vertex_number << '\n';
-	cout << count_cut / vertex_number << '\n';
+	of << count_cut / vertex_number << '\n';
+	//cout << count_cut / vertex_number << '\n';
 	}
 	of.close();
 	checker();
