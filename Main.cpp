@@ -4,7 +4,8 @@
 #include<cstdlib>
 #include "breadth-first search.h"
 //#include "Square_grid.h"
-#include "Triangle_grid.h"
+//#include "Triangle_grid.h"
+#include"Cube_grid.h"
 
 using namespace std;
 
@@ -46,15 +47,17 @@ void checker()
 
 
 int main() {
-	int N = 80;
+	int N = 10;
 	ofstream of;
-	of.open("D:\\EGOR\\study\\source\\repos\\Study practice\\Study practice\\output.txt");
+	//of.open("D:\\EGOR\\study\\source\\repos\\Study practice\\Study practice\\output.txt");
 	for (int i = 0; i < 1; ++i) {
 		
-		auto filled_case = fill_grid(N);
+		//auto filled_case = fill_grid(N);
 
-		auto grid = filled_case.first;
-		double vertex_number = filled_case.second;
+		//auto grid = filled_case.first;
+
+		//double vertex_number = filled_case.second;
+		auto grid = fill_grid();
 
 		vector<int> track;
 		for (int i = 0; i < N; ++i)
@@ -64,7 +67,7 @@ int main() {
 		while (true)
 		{
 			int start = 0;
-			int finish = N - 1;
+			int finish = N * N - 1;
 			if (!correct_path(grid, track))
 				track = Breadth_first_search(grid, start, finish);
 			if (track.empty())
@@ -75,10 +78,9 @@ int main() {
 			count_cut++;
 
 		}
-	of << count_cut / vertex_number << '\n';
-	//cout << count_cut / vertex_number << '\n';
+	//of << count_cut / vertex_number << '\n';
+	cout << count_cut / vertex_number << '\n';
 	}
 	of.close();
-	checker();
-	return 1;
+	//checker();
 }
